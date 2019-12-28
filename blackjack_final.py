@@ -1,8 +1,9 @@
 import random
 import os
 
+#Defining the card deck as an array:
 deck = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]*4
-
+#Deal function ( and converting numbers to face cards)
 def deal(deck):
     hand = []
     for i in range(2):
@@ -27,6 +28,7 @@ def play_again():
         print ("See ya.")
         exit()
 
+#calculating the total, and converting face cards back to numbers:
 def total(hand):
     total = 0
     for card in hand:
@@ -100,14 +102,13 @@ def score(dealer_hand, player_hand):
 def game():
     choice = 0
     clear()
-    print ("WELCOME TO BLACKJACK!\n")
+    print ("Welcome to Blackjack! (Made by Aadi Anjaria)\n")
     dealer_hand = deal(deck)
     player_hand = deal(deck)
     while choice != "q":
         print ("The dealer is showing a " + str(dealer_hand[0]))
         print ("You have a " + str(player_hand) + " for a total of " + str(total(player_hand)))
         blackjack(dealer_hand, player_hand)
-        #THE PREVIOUS LINE IS A FUNCTION AND SHOULD BE BLUE
         choice = input("Do you want to [H]it, [S]tand, or [Q]uit: ").lower()
         clear()
         if choice == "h":
@@ -124,3 +125,5 @@ def game():
 
 if __name__ == "__main__":
    game()
+
+#code cleanup still needs to be done
