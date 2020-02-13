@@ -3,6 +3,7 @@ import os
 
 #Defining the card deck as an array:
 deck = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]*4
+
 #Deal function ( and converting numbers to face cards)
 def deal(deck):
     hand = []
@@ -44,6 +45,7 @@ def total(hand):
             total += card
     return total
 
+#hit function
 def hit(hand):
     card = deck.pop()
     facevalue = {"J":11, "Q":12, "K":13, "A":1}
@@ -58,12 +60,14 @@ def hit(hand):
     hand.append(card)
     return hand
 
+#clear function to reset or end the game
 def clear():
     if os.name == 'nt':
         os.system('CLS')
     if os.name == 'posix':
         os.system('clear')
 
+#Ending Functions (win, loss, score)
 def print_results(dealer_hand, player_hand):
     clear()
     print ("The dealer has a " + str(dealer_hand) + " for a total of " + str(total(dealer_hand)))
@@ -99,6 +103,7 @@ def score(dealer_hand, player_hand):
         print_results(dealer_hand, player_hand)
         print ("Congratulations! Your score is higher than the dealer. You win!")
 
+#game itself
 def game():
     choice = 0
     clear()
@@ -126,4 +131,3 @@ def game():
 if __name__ == "__main__":
    game()
 
-#code cleanup still needs to be done
